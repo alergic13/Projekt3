@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter', sans-serif;
+}
+
+body{
+background: black;
+color:#eaeaea;
+overflow-x:hidden;
+}
+
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('../images/vesmir.jpg') center/cover no-repeat;
+opacity:0.35;
+z-index:-2;
+transform:scale(1.05);
+}
+
+.side-left,
+.side-right{
+position:fixed;
+top:0;
+width:120px;
+height:100vh;
+z-index:-1;
+background:linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(0,0,0,0.95));
+border-left:1px solid rgba(255,255,255,0.05);
+border-right:1px solid rgba(255,255,255,0.05);
+}
+
+.side-left{left:0;}
+.side-right{right:0;}
+
+#menu-toggle{
+display:none;
+}
+
+.burger{
+position:fixed;
+top:15px;
+left:15px;
+z-index:1000;
+font-size:28px;
+cursor:pointer;
+background:rgba(255,255,255,0.08);
+padding:10px 14px;
+border-radius:10px;
+backdrop-filter:blur(8px);
+transition:0.2s;
+}
+
+.burger:hover{
+background:rgba(255,255,255,0.15);
+}
+
+.menu{
+position:fixed;
+top:70px;
+left:15px;
+background:rgba(0,0,0,0.92);
+padding:12px;
+border-radius:12px;
+
+display:none;
+flex-direction:column;
+gap:6px;
+
+min-width:180px;
+z-index:999;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.menu a{
+color:#eaeaea;
+text-decoration:none;
+padding:8px 10px;
+border-radius:8px;
+font-size:14px;
+transition:0.2s;
+}
+
+.menu a:hover{
+background:rgba(255,255,255,0.1);
+}
+
+#menu-toggle:checked + .burger + .menu{
+display:flex;
+}
+
+.topbar{
+text-align:center;
+padding:60px 20px;
+}
+
+.topbar h1{
+font-size:42px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.topbar p{
+opacity:0.7;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+padding:40px 180px;
+}
+
+.card{
+height:320px;
+border-radius:18px;
+background-size:cover;
+background-position:center;
+position:relative;
+text-decoration:none;
+color:white;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+transition:0.25s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 35px rgba(255,255,255,0.12);
+}
+
+.sun{
+grid-column:1 / -1;
+height:380px;
+}
+
+.overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:16px;
+background:linear-gradient(to top, rgba(0,0,0,0.92), transparent);
+}
+
+.overlay h2{
+font-size:24px;
+font-weight:700;
+}
+
+.overlay p{
+font-size:13px;
+opacity:0.75;
+margin-top:3px;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+padding:20px;
+}
+
+.side-left,
+.side-right{
+display:none;
+}
+
+.sun{
+grid-column:auto;
+height:320px;
+}
+
+.menu{
+left:10px;
+right:10px;
+width:auto;
+}
+}
+
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#000000;
+    color:white;
+}
+
+.planet-page{
+    display:grid;
+    grid-template-columns: 1fr;
+    padding:60px 80px;
+    gap:30px;
+}
+.planet-top{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+/* LEFT SIDE */
+.planet-info{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+/* RIGHT SIDE */
+.planet-image{
+    display:flex;
+    justify-content:center;
+}
+
+.planet-image img{
+    width:100%;
+    max-width:650px;
+    height:auto;
+}
+
+.info-box{
+    background:rgba(255,255,255,0.05);
+    border-left:3px solid rgba(255,255,255,0.2);
+    padding:20px;
+    border-radius:12px;
+    backdrop-filter:blur(10px);
+}
+
+.info-box h2{
+    margin:0 0 10px 0;
+    font-size:20px;
+}
+
+.info-box p{
+    margin:0;
+    line-height:1.7;
+    opacity:0.85;
+}
+
+.extra-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.extra-info .info-box{
+    flex:1;
+}
+
+.back{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:28px;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,0.05);
+    padding:10px 14px;
+    border-radius:12px;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+    z-index:999;
+}
+
+.back:hover{
+    transform:scale(1.1);
+}
+
+@media(max-width:900px){
+    .planet-top{
+        grid-template-columns:1fr;
+    }
+
+    .extra-info{
+        grid-template-columns:1fr;
+    }
+
+    .planet-page{
+        padding:30px;
+    }
+}
